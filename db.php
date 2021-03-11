@@ -48,8 +48,10 @@
             }
         
         public function sel_one($id){
-            $SQL_Query="select * from book where {$id}";
+            $SQL_Query="select * from book where '$id'";
             $result = $this->dbConn->query($SQL_Query);
+            $row = $result->fetch_assoc();
+            return($row);
         }
     }
 ?>
