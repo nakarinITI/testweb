@@ -8,6 +8,7 @@
     <meta charset="utf-8">
 </head>
 <body>
+    <a href="form_insert.php">Insert</a>
     <table border="1">
         <?php
             $myconn->show_information();
