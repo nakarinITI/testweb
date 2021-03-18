@@ -9,7 +9,7 @@
     }else if($_SERVER['REQUEST_METHOD']=='POST'){
         debug_text("POST METHOD May be implement soon...",$debug_mode);
     }else{
-        debug_text("Error Unknow this request",$debug_mode);
+        debug_text("Error this site Unsupport This request",$debug_mode);
         http_response_code(405);
     }
 
