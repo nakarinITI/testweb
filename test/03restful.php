@@ -2,9 +2,10 @@
 <head>
     <meta charset="UTF-8">
 </head>
-<body onload="loadDoc()">
+<body >
     <h1>Result</h1>
-    Add Test:<input type="text" id="name"><input type="text" id="age">
+    Add name:<input type="text" id="name"><br>
+    Add age:<input type="text" id="age"><br>
     <button onclick="add_new()">Add Data</button><br>
     <div id="result"></div>
     <script>
