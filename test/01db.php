@@ -14,13 +14,6 @@
             else $this->debug_text("Connect Success");
         }
 
-        function insert($name, $age){
-            $timestamp = date("Y-m-d H:i:s");
-            $SQL_Query="INSERT INTO person (id,name,age,create_date)
-                        VALUES(0,{$name},{$age},{$timestamp}}";
-            $result = $this->dbConn->query($SQL_Query);
-        }
-
         function query($sql){
             $result = $this->db->query($sql);
             $this->debug_text($sql);
