@@ -31,9 +31,19 @@
                 foreach($row as $key => $value){
                     echo "<td>{$value}</td>";
                 }
-                echo "<td><a href='edit.php?id={$row['Product_id']}'>ShopShock</a></td>";
+                echo "<td><a href='atc.php?id={$row['Product_id']}'>ShopShock</a></td>";
                 echo"</tr>";
                 }
+        }
+
+        public function sel_one($id){
+            $SQL_Query="SELECT p.Product_id, p.Product_code, p.Product_Name, brand.Brand_name, unit.Unit_name, p.Cost FROM product AS p
+            INNER JOIN brand ON (p.Brand_ID = brand.Brand_id) 
+            INNER JOIN unit  ON (p.Unit_ID = unit.Unit_id)
+            WHERE Product_id = '$id'";
+            $result = $this->dbConn->query($SQL_Query);
+            $row = $result->fetch_assoc();
+            return($row);
         }
     }
 ?>

@@ -4,7 +4,9 @@
 </head>
 <body>
     <form name="regis" action="">
-        <table>
+    <h2 align="center">ShopShock Member Register</h2>
+
+        <table align="center">
             <tr>
                 <td align="right">Name:</td><td><input type="text" name="name" require></td>
             </tr>
