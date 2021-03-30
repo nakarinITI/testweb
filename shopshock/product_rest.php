@@ -6,7 +6,7 @@
     if($_SERVER["REQUEST_METHOD"]=='GET'){
         echo json_encode(product_list(),JSON_UNESCAPED_UNICODE);
     }else if($_SERVER["REQUEST_METHOD"]=='POST'){
-
+        echo json_encode(print_r($_POST));
 
     }
     function product_list(){
@@ -23,4 +23,12 @@
         return $result;
     }
     
+    function open_bill(){
+        $db = new database();
+        $db->connect();
+        $sql = "SELECT Bill_id FROM bill WHERE Cus_ID={$_SESSION['cus_id']} order by Bill_id desc limit 1";
+        $result = $db->query($sql);
+        return $result;
+    }
+
 ?>
