@@ -32,9 +32,8 @@
         <tr>
             <td align="right">Quantity:</td><td><input type="number"></td>
         </tr>
-        <tr>
-            <td align="right"><input type="submit" value="submit"></td><td><input type="reset" value="reset"></td>
-        </tr>
+           
     </table>
+    <p align="center"><input type="submit" value="submit" style="margin-right: 10px;"><input type="reset" value="reset"></p>
 </body>
 </html>

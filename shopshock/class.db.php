@@ -1,25 +1,5 @@
-<?php
-    class database{
-        public $dbConn=null;
-        public function connect(){
-            define("host","localhost");
-            define("dbUser","root");
-            define("password","");
-            define("database","shopshock");
-            $this->dbConn=new mysqli(host,dbUser,password,database);
-            $this->dbConn->query("SET NAMES UTF8");
-
-        if($this->dbConn->connect_error)
-            die("Database Connection Error No.:".
-                $this->dbConn->connect_error."|".$this->dbConn->connect_error);
-        else{
-            //echo "Successfully connected<br>";
-        }
-        }
-        public function disconnect(){
-            $this->dbConn->close();
-        }
-
+<!-- 
+.
         public function show_product(){
             $SQL_Query="SELECT p.Product_id, p.Product_code, p.Product_Name, brand.Brand_name, unit.Unit_name, p.Cost FROM product AS p
             INNER JOIN brand ON (p.Brand_ID = brand.Brand_id) 
@@ -46,4 +26,23 @@
             return($row);
         }
     }
+?> -->
+<?php
+    class database{
+        private $db;
+        function connect(){
+            $this->db = new mysqli("localhost","root","","shopshock");
+            $this->db->set_charset("utf8");
+            if($this->db->connect_errno) echo "Error something";
+        } 
+        function query($sql, $option=MYSQLI_NUM){
+            $result = $this->db->query($sql);
+            return $result->fetch_all($option);
+        }
+        function exec($sql){ return $this->db->query($sql);}
+        function close(){ $this->db->close();}
+    }
+
+
+    //return $result;
 ?>
