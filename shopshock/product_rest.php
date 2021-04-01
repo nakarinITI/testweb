@@ -44,12 +44,20 @@
                         VALUES ({$bill_result[0][0]},{$p_id},{$p_qty},{$p_price})";
                 $result = $db->exec($sql);
                 if($result){
-                    //update current item
+                    $step="4:update item";
+                    $bill_id = $bill_result[0][0];
+                    $sql = "UPDATE bill_detail SET Quantity={$p_qty},Unit_price={$p_price} WHERE Bill_id={$bill_id} and Product_ID={$p_id}";
+                    $result = $db->exec($sql);
+                    $step="5:update complete";
                 }
+                $sql ="SELECT * from bill WHERE Bill_Id={$bill_result[0][0]}";
+                $bill_head=$db->query($sql,MYSQLI_ASSOC);
+                $sql ="SELECT * from bill_detail WHERE Bill_Id={$bill_result[0][0]}";
+                $bill_detail=$db->query($sql,MYSQLI_ASSOC);
             }
         }
         #INSERT INTO bill(Bill_id, Cus_ID, Bill_Status) VALUES (1,1,1)
-        return $result;
+        return ["step"=>$step,"bill"=>json_encode($bill_head),"bill_detail"=>$bill_detail];
 
 
     }
