@@ -66,7 +66,7 @@
     }
 
     function open_bill(idx,cus_id){
-        qty = document.getElementById("out3");
+        out = document.getElementById("out3");
         price = arr[idx][5];
         //alert("product_code="+arr[idx][1]+"="+qty.value+",price="+price);
         let xhttp = new XMLHttpRequest();
@@ -80,7 +80,7 @@
                    text += "<td>"+t1[i]+"</td>";
                }
                text += "</tr></table>";
-               out3.innerHTML = text;
+               out.innerHTML = text;
                text = "<table border='1'>";
                for(i=0;i<label.length-1;i++){
                     text+= "<th>"+label[1]+"</th>";
