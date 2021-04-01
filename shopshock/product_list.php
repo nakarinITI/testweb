@@ -80,7 +80,6 @@
                    text += "<td>"+t1[i]+"</td>";
                }
                text += "</tr></table>";
-               out.innerHTML = text;
                text = "<table border='1'>";
                for(i=0;i<label.length-1;i++){
                     text+= "<th>"+label[1]+"</th>";
@@ -94,7 +93,9 @@
                    text = "<tr>"+text+"</tr>";
                }
                text+="</table>";
+               out.innerHTML = text;
             }
+            
         }
         xhttp.open("POST","product_rest.php",true);
         xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
