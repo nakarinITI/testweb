@@ -26,7 +26,6 @@
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if(this.readyState==4 && this.status==200){
-                alert(arr);
                 arr= JSON.parse(this.responseText);
                 text = "<table border='1'>";
                 for(i=0;i<label.length-1;i++){
@@ -59,14 +58,15 @@
         }
         text += "<tr><td>"+label[6]+"</td>";
         text += "<td><input type='number' id='n"+idx+"' min='1' max='"+arr[idx][6]+"'></td></tr>";
-        text += "<tr><td colspan='2'><button onclick='open_po("+idx+","+cus_id+")'>add to cart</button><input type='reset'></td></tr>"
+        text += "<tr><td colspan='2'><button onclick='open_bill("+idx+","+cus_id+")'>add to cart</button><input type='reset'></td></tr>"
         text += "</table>";
         out.innerHTML = text;
     }
 
-    function open_po(idx,cus_id){
+    function open_bill(idx,cus_id){
         qty = document.getElementById("n"+idx);
-        alert("product_code="+arr[idx][1]+"="+qty.value);
+        price = arr[idx][5];
+        //alert("product_code="+arr[idx][1]+"="+qty.value+",price="+price);
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){ 
             if(this.readyState==4 && this.status==200){
